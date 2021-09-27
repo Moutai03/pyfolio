@@ -1,0 +1,11 @@
+import pyfolio as pf
+import pandas as pd
+import matplotlib.pyplot as plt
+stock_rets = pd.read_csv('return.csv', index_col=0, parse_dates=True)
+benchmark_rets = pd.read_csv('benchmark.csv', index_col=0, parse_dates=True)
+returns = stock_rets['return'].tz_localize('UTC')
+benchmark_rets = benchmark_rets['return'].tz_localize('UTC')
+#live_start_date = '2016-5-1'
+#pf.create_returns_tear_sheet(returns, benchmark_rets=benchmark_rets, live_start_date=live_start_date)
+pf.create_returns_tear_sheet(returns)
+plt.show()
